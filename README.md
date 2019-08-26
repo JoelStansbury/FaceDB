@@ -8,7 +8,8 @@ Find and group faces in a database of images
 ### Why
  * We have a large set of images from various events. We want the ability to search for all images containing a particular person.
 ### How
- * I intend to use [OpenCv](https://opencv.org/) for all face detection and labeling. The user interface will probably be browser-based, though I'm considering using PyQT.
+ * I intend to use [OpenCv](https://opencv.org/) for all face detection and labeling. 
+ * The user interface will probably be browser-based, though I'm considering using PyQT.
 
  
  ### References
