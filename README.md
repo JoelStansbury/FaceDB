@@ -1,5 +1,5 @@
 # FaceDB
-Find and group faces in a database of images
+Find and group faces in a database of images.
 
 
 ## Current State
