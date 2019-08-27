@@ -30,7 +30,7 @@ fnames, bboxs = ff.find_similar(im,3,True)
 for i in range(len(fnames)):
     ff.show_bboxs(fnames[i], bboxs[i])
 ```
-
+![alt text](Capture.PNG)
 
 
 
