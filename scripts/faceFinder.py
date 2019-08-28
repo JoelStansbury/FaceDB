@@ -13,8 +13,8 @@ filetypes = ['.jpg','.png']
 # TRY TO OPEN LOCAL DATABASE
 # OR MAKE A NEW ONE
 try:
-    FNAME, BBOX, VEC = ls.load('faces.pkl')
-    PROCESSED_IMAGES = ls.load('processed_images.pkl')
+    FNAME, BBOX, VEC = ls.load('pickles/faces.pkl')
+    PROCESSED_IMAGES = ls.load('pickles/processed_images.pkl')
 except:
     FNAME = []
     BBOX = []
@@ -30,14 +30,14 @@ except:
 # load the required trained XML classifiers
 # https://github.com/opencv/opencv/tree/master/data/haarcascades/haarcascade_frontalface_default.xml
 # (N*M) dimensional image --> list of rectangles (bounding boxes for each face detected)
-face_cascade = cv2.CascadeClassifier('../data/models/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 
 
 # Face Embedder
 # https://cmusatyalab.github.io/openface/models-and-accuracies/
 # nn4.small2.v1
 # Trained PyTorch Model for extracting Face Embeddings (Unique 128-dim vector)
-embedder = cv2.dnn.readNetFromTorch('../data/models/nn4.small2.v1.t7')
+embedder = cv2.dnn.readNetFromTorch('models/nn4.small2.v1.t7')
 
 ######################################
 # UTILITY FUNCTIONS
@@ -132,8 +132,8 @@ def process_images(path):
                 VEC.append(vecs[i][0])                              #           ...
                 BBOX.append(bb)                                     #           ...
             PROCESSED_IMAGES[img] = 0                               #      ADD IMAGE-PATH TO PROCESSED_IMAGES
-        ls.save((FNAME, BBOX, VEC), 'faces.pkl')                    #           (to keep it from being processed again)
-        ls.save(PROCESSED_IMAGES, 'processed_images.pkl')           #      SAVE DATABASES
+        ls.save((FNAME, BBOX, VEC), 'pickles/faces.pkl')            #           (to keep it from being processed again)
+        ls.save(PROCESSED_IMAGES, 'pickles/processed_images.pkl')   #      SAVE DATABASES
     else:
         print('No new images to process')
 
