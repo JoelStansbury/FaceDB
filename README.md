@@ -7,10 +7,10 @@ Find and group faces in a database of images.
 Before you can query your collection of images you must first process them all. This entails finding and extracting feature vectors from all faces found in your collection of images.
 
 ```
-import faceFinder
+import faceFinder as ff
 
 path = "C:/path/to/images/folder"
-faceFinder.process_images(path)
+ff.process_images(path)
 ```
 * Path may have sub-directories, `process_images()` will find all `.jpg` and `.png` files within
 * `process_images()` will create `faces.pkl` and `processed_images.pkl`
